@@ -1,0 +1,40 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<DataAccessLibrary.Models.Post>
+@{
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col">UpVotes</th>
+			<th scope="col">DownVotes</th>
+			<th scope="col">Diference</th>
+			<th scope="col">Percentage</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		@foreach (var Post in Model)
+		{
+			<tr>
+				<td>@Post.Id</td>
+				<td>
+					<a class="" asp-area="" asp-controller="UpVote" asp-action="@Post.Id">UpVote</a>
+				</td>
+				<td>
+					<a class="" asp-area="" asp-controller="DownVote" asp-action="@Post.Id">DownVote</a>
+				</td>
+				<td>@Post.UpVotes</td>
+				<td>@Post.DownVotes</td>
+				<td>@Post.Diference</td>
+				<td>@Post.Percentage</td>
+			</tr>
+		}
+
+	</tbody>
+</table>
